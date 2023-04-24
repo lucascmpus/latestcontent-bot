@@ -2,7 +2,7 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
-const option = {
+const OptionsTMI = {
   options: {
     clientId: process.env.ID_CLIENT,
     debug: true,
@@ -14,4 +14,11 @@ const option = {
   channels: [process.env.CHANNEL_NAME || 'k1nhz'],
 };
 
-export default option;
+const OptionsTwitter = {
+  consumer_key: process.env.CONSUMER_KEY_TWITTER,
+  consumer_secret: process.env.CONSUMER_SECRET_TWITTER,
+  access_token: process.env.ACCESS_TOKEN_TWITTER,
+  access_token_secret: process.env.ACCESS_TOKEN_SECRET_TWITTER,
+};
+
+export { OptionsTMI, OptionsTwitter };
