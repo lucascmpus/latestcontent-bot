@@ -1,8 +1,9 @@
 import Client from './client/tmi';
 import { GetAdvice } from './utils/advice';
-import option from './utils/options';
+import { OptionsTMI } from './utils/options';
+import getLastTweets from './utils/twitter';
 
-const client = new Client(option);
+const client = new Client(OptionsTMI);
 
 client.on('message', async (target, context, msg, self) => {
   if (self) {
@@ -13,7 +14,8 @@ client.on('message', async (target, context, msg, self) => {
     client.say(target, await GetAdvice()).catch(err => console.log(err));
   }
 
-  if (msg.trim() === '!tiktok') {
+  if (msg.trim() === '!twitter') {
+    client.say(target, getLastTweets('k1nha__'));
   }
 });
 
